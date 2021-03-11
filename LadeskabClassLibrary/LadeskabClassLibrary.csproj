@@ -9,4 +9,8 @@
     <Folder Include="UserInterface\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NunitXml.TestLogger" Version="3.0.97" />
+  </ItemGroup>
+
 </Project>
