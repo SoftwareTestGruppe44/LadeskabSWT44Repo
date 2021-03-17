@@ -17,12 +17,12 @@ namespace LadeskabClassLibrary.ChargeController
             return false;
         }
 
-        public void startCharge()
+        public void StartCharge()
         {
             usbCharger.StartCharge();
         }
 
-        public void stopCharge()
+        public void StopCharge()
         {
             usbCharger.StopCharge();
         }

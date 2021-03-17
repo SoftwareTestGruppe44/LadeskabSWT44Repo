@@ -6,7 +6,9 @@ namespace LadeskabClassLibrary.Door
     {
         public event EventHandler<DoorEventArgs> StateChanged;
         public bool DoorIsOpen { get; set; }
-        public void LockDoor(bool doorStateChanged);
-        public void UnlockDoor(bool doorStateChanged);
+        public bool DoorLocked { get; set; }
+        public void LockDoor();
+        public void UnlockDoor();
+
     }
 }
