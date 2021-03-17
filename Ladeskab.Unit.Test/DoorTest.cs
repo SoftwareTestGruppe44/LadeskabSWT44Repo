@@ -70,7 +70,7 @@ namespace Ladeskab.Unit.Test
             //act
             _door.DoorOpen();
             //assert
-            Assert.That(_receivedEventArgs, Is.Null);
+            Assert.That(_receivedEventArgs, Is.Not.Null);
         }
         [Test]
         public void DoorClose_DoorIsOpenChangesState_EventFired()
@@ -80,13 +80,13 @@ namespace Ladeskab.Unit.Test
             //act
             _door.DoorClose();
             //assert
-            Assert.That(_receivedEventArgs, Is.Null);
+            Assert.That(_receivedEventArgs, Is.Not.Null);
         }
         [Test]
         public void DoorOpen_DoorIsOpenDoesNotChangeState_EventNotFired()
         {
             // arrange
-            _door.DoorIsOpen = false;
+            _door.DoorIsOpen = true;
             //act
             _door.DoorOpen();
             //assert
@@ -96,7 +96,7 @@ namespace Ladeskab.Unit.Test
         public void DoorClose_DoorIsOpenDoesNotChangeState_EventNotFired()
         {
             //arrange
-            _door.DoorIsOpen = true;
+            _door.DoorIsOpen = false;
             //act
             _door.DoorClose();
             //assert

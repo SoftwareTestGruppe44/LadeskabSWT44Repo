@@ -11,7 +11,7 @@ namespace LadeskabClassLibrary.Door
 
         public void DoorOpen()
         {
-            if (DoorIsOpen == false) return;
+            if (DoorIsOpen == true) return;
 
             DoorIsOpen = false;
             OnStateChanged(new DoorEventArgs() { DoorOpen = DoorIsOpen });
@@ -20,7 +20,7 @@ namespace LadeskabClassLibrary.Door
 
         public void DoorClose()
         {
-            if (DoorIsOpen == true) return;
+            if (DoorIsOpen == false) return;
             DoorIsOpen = true;
             OnStateChanged(new DoorEventArgs() { DoorOpen = DoorIsOpen });
 
