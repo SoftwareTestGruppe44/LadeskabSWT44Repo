@@ -27,9 +27,26 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void Test1()
+        public void ScanId_NewIdDetected_EventCalled()
         {
-            Assert.Pass();
+            //Arrange
+            _uut.ScanId(2);
+
+            //Act
+            //Assert
+            Assert.That(_eventArgs, Is.Not.Null);
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void ScanId_NewIdDetected_IdMatches(int id)
+        {
+            //Arrange
+            _uut.ScanId(id);
+
+            //Act
+            //Assert
+            Assert.That(_eventArgs.ScannedId, Is.EqualTo(id));
         }
     }
 }
