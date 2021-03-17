@@ -1,4 +1,4 @@
-﻿namespace LadeskabClassLibrary.Console
+﻿namespace LadeskabClassLibrary.MyConsole
 {
     public interface IMyConsole
     {
