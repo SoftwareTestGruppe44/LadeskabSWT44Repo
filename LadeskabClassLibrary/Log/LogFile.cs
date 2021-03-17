@@ -4,7 +4,7 @@ namespace LadeskabClassLibrary.Log
 {
     public class LogFile : ILog
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
         public LogFile(ILogger logger)
         {
             _logger = logger;

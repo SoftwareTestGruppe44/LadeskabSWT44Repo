@@ -4,10 +4,15 @@ namespace LadeskabClassLibrary.Door
 {
     public class Door : IDoor
     {
-       
         public event EventHandler<DoorEventArgs> StateChanged;
         public bool DoorIsOpen { get; set; }
         public bool DoorLocked { get; set; }
+
+        public Door()
+        {
+            DoorIsOpen = false;
+            DoorLocked = false;
+        }
 
         public void DoorOpen()
         {
@@ -17,13 +22,11 @@ namespace LadeskabClassLibrary.Door
             OnStateChanged(new DoorEventArgs() { DoorOpen = DoorIsOpen });
         }
 
-
         public void DoorClose()
         {
             if (DoorIsOpen == false) return;
             DoorIsOpen = false;
             OnStateChanged(new DoorEventArgs() { DoorOpen = DoorIsOpen });
-
         }
         public void LockDoor()
         {
@@ -31,12 +34,10 @@ namespace LadeskabClassLibrary.Door
             DoorLocked = true;
         }
 
-
         public void UnlockDoor()
         {
             if (DoorLocked == false) return;
             DoorLocked = false;
-
         }
 
         protected virtual void OnStateChanged(DoorEventArgs e)
