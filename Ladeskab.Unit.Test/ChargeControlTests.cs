@@ -16,13 +16,12 @@ namespace Ladeskab.Unit.Test
             _usbSimulator = Substitute.For<UsbChargerSimulator>();
             _usbCharger = _usbSimulator;
             _chargeControl = new ChargeControl(_usbCharger);
-            
         }
 
         
         [TestCase(true)]
         [TestCase(false)]
-        public void check_isConnected(bool connected)
+        public void check_isConnected_TrueFalse(bool connected)
         {
             //Arrange
             
@@ -35,7 +34,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void check_startCharge()
+        public void ChargeControl_StartCharge_Calls_UsbCharger_StartCharge()
         {
             //Arrange
 
@@ -43,11 +42,10 @@ namespace Ladeskab.Unit.Test
             _chargeControl.StartCharge();
             //Assert
             _usbCharger.Received(1).StartCharge();
-            
         }
 
         [Test]
-        public void check_stopCharge()
+        public void ChargeControl_StopCharge_Calls_UsbCharger_StopCharge()
         {
             //Arrange
 
