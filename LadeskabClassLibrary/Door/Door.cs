@@ -9,6 +9,12 @@ namespace LadeskabClassLibrary.Door
         public bool DoorIsOpen { get; set; }
         public bool DoorLocked { get; set; }
 
+        public Door()
+        {
+            DoorIsOpen = false;
+            DoorLocked = false;
+        }
+
         public void DoorOpen()
         {
             if (DoorIsOpen == true) return;
