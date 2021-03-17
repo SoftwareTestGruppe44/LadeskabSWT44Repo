@@ -1,5 +1,5 @@
 ﻿using System;
-using LadeskabClassLibrary.Console;
+using LadeskabClassLibrary.MyConsole;
 
 namespace LadeskabClassLibrary.UserInterface
 {
