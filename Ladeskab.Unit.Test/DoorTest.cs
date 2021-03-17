@@ -21,55 +21,88 @@ namespace Ladeskab.Unit.Test
                 };
         }
         [Test]
-        public void UnlockDoor_DoorIsOpenChangesState_EventFired()
+        public void UnlockDoor_DoorLockedChangesValue_IsEqualToFalse()
         {
             //arrange
-            _door.DoorIsOpen = false;
+            _door.DoorLocked = true;
             //act
-            _door.UnlockDoor(_door.DoorIsOpen);
+            _door.UnlockDoor();
             //assert
-            Assert.That(_receivedEventArgs, Is.Not.Null);
+            Assert.AreEqual(false, _door.DoorLocked);
         }
 
         [Test]
-        public void LockDoor_DoorIsOpenChangesState_EventFired()
+        public void LockDoor_DoorLockedChangesValue_IsEqualToTrue()
         {
             //arrange
-            _door.DoorIsOpen = true;
+            _door.DoorLocked = false;
             //act
-            _door.LockDoor(_door.DoorIsOpen);
+            _door.LockDoor();
             //assert
-            Assert.That(_receivedEventArgs, Is.Not.Null);
+            Assert.AreEqual(true, _door.DoorLocked);
         }
         [Test]
-        public void UnlockDoor_DoorIsOpenDoNotChangeState_EventNotFired()
+        public void UnlockDoor_DoorLockedDoesNotChangeValue_IsEqualToFalse()
+        {
+            //arrange
+            _door.DoorLocked = false;
+            //act
+            _door.UnlockDoor();
+            //assert
+            Assert.AreEqual(false, _door.DoorLocked);
+        }
+
+        [Test]
+        public void LockDoor_DoorLockedDoesNotChangeValue_IsEqualToTrue()
+        {
+            //arrange
+            _door.DoorLocked = true;
+            //act
+            _door.LockDoor();
+            //assert
+            Assert.AreEqual(true, _door.DoorLocked);
+        }
+        [Test]
+        public void DoorOpen_DoorIsOpenChangesState_EventFired()
         {
             // arrange
-            _door.DoorIsOpen = true;
-            //act
-            _door.UnlockDoor(_door.DoorIsOpen);
-            //assert
-            Assert.That(_receivedEventArgs, Is.Null);
-        }
-        [Test]
-        public void LockDoor_DoorIsOpenDoNotChangeState_EventNotFired()
-        {
-            //arrange
             _door.DoorIsOpen = false;
             //act
-            _door.LockDoor(_door.DoorIsOpen);
+            _door.DoorOpen();
             //assert
             Assert.That(_receivedEventArgs, Is.Null);
         }
         [Test]
-        public void LockDoor_DoorOpenIsEqualToDoorIsOpen()
+        public void DoorClose_DoorIsOpenChangesState_EventFired()
         {
             //arrange
             _door.DoorIsOpen = true;
             //act
-            _door.LockDoor(_door.DoorIsOpen);
+            _door.DoorClose();
             //assert
-            Assert.AreEqual(true, _receivedEventArgs.DoorOpen);
+            Assert.That(_receivedEventArgs, Is.Null);
         }
+        [Test]
+        public void DoorOpen_DoorIsOpenDoesNotChangeState_EventNotFired()
+        {
+            // arrange
+            _door.DoorIsOpen = false;
+            //act
+            _door.DoorOpen();
+            //assert
+            Assert.That(_receivedEventArgs, Is.Null);
+        }
+        [Test]
+        public void DoorClose_DoorIsOpenDoesNotChangeState_EventNotFired()
+        {
+            //arrange
+            _door.DoorIsOpen = true;
+            //act
+            _door.DoorClose();
+            //assert
+            Assert.That(_receivedEventArgs, Is.Null);
+        }
+
+       
     }
 }
