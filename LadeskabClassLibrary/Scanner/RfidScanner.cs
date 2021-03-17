@@ -8,7 +8,7 @@ namespace LadeskabClassLibrary.Scanner
         public event EventHandler<ScanEventArgs> ScanEvent;
         public void ScanId(int id)
         {
-            if (id < 1) return;
+            if (id < 1) throw new ArgumentOutOfRangeException("id not Valid");
             RfidScanned(new ScanEventArgs(){ ScannedId = id});   
         }
 
