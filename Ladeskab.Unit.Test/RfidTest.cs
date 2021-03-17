@@ -37,6 +37,23 @@ namespace Ladeskab.Unit.Test
             Assert.That(_eventArgs, Is.Not.Null);
         }
 
+        [Test]
+        public void ScanId_NewInvalidIdDetected_EventNotCalledExceptionThrown()
+        {
+            //Arrange
+            //Act
+            try
+            {
+                _uut.ScanId(0);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                
+            }
+            //Assert
+            Assert.That(_eventArgs, Is.Null);
+        }
+
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(int.MaxValue)]
