@@ -18,6 +18,7 @@ namespace LadeskabClassLibrary
          * IDoor _door;
          * IDisplay _display;
          * ILog _Log;
+         * IScanner _scanner
          */
         #region Propeties
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
@@ -35,15 +36,21 @@ namespace LadeskabClassLibrary
         private IDoor _door;
         private IDisplay _display;
         private ILog _Log;
+        private IScanner _scanner;
         
         #endregion
 
-        public StationControl(IChargeControl charger, IDoor door, IDisplay display, ILog log)
+        public StationControl(IChargeControl charger, IDoor door, IScanner scanner, IDisplay display, ILog log)
         {
             _charger = charger;
             _door = door;
+            door.StateChanged += DoorChanged;
             _display = display;
             _Log = log;
+            _scanner = scanner;
+            scanner.ScanEvent += RfidDetected;
+            _state = LadeskabState.Available;
+
         }
 
         /* Region content:
