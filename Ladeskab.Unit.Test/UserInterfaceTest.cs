@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using LadeskabClassLibrary.Console;
+using LadeskabClassLibrary.MyConsole;
 using LadeskabClassLibrary.UserInterface;
 using NUnit.Framework;
 using NSubstitute;
