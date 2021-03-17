@@ -5,7 +5,12 @@ namespace LadeskabClassLibrary.ChargeController
 {
     public class ChargeControl : IChargeControl
     {
-        private UsbChargerSimulator usbCharger = new UsbChargerSimulator();
+        private IUsbCharger usbCharger;
+
+        public ChargeControl(IUsbCharger iusb)
+        {
+            usbCharger = iusb;
+        }
         public bool isConnected()
         {
             if (usbCharger.Connected) { return true; } //Checks UsbChargerSimulator if connected
