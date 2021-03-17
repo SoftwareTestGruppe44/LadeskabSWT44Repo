@@ -39,6 +39,7 @@ namespace Ladeskab.Unit.Test
 
         [TestCase(1)]
         [TestCase(2)]
+        [TestCase(int.MaxValue)]
         public void ScanId_NewIdDetected_IdMatches(int id)
         {
             //Arrange
@@ -47,6 +48,17 @@ namespace Ladeskab.Unit.Test
             //Act
             //Assert
             Assert.That(_eventArgs.ScannedId, Is.EqualTo(id));
+        }
+
+        [TestCase(0)]
+        [TestCase(-5)]
+        [TestCase(int.MinValue)]
+        public void ScanId_NewIdDetected_IdOutOfRange(int id)
+        {
+            //Arrange
+            //Act
+            //Assert
+            Assert.That(() => _uut.ScanId(id), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
     }
 }
