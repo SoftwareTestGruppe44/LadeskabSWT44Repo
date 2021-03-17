@@ -18,7 +18,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void Test1()
+        public void ConnectPhone_HdDisplay_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -26,6 +26,60 @@ namespace Ladeskab.Unit.Test
             _display.ConnectPhone();
             //Assert
             _myConsole.Received(1).WriteLine("Please connect your phone to the charger and close the door.");
+        }
+
+        [Test]
+        public void ScanRFID_HdDisplay_CallConsoleWriteLine()
+        {
+            //Arrange
+
+            //Act
+            _display.ScanRFID();
+            //Assert
+            _myConsole.Received(1).WriteLine("Please scan your RFID tag.");
+        }
+
+        [Test]
+        public void RFIDError_HdDisplay_CallConsoleWriteLine()
+        {
+            //Arrange
+
+            //Act
+            _display.RFIDError();
+            //Assert
+            _myConsole.Received(1).WriteLine("Your doesn't match the owner of this locker.");
+        }
+
+        [Test]
+        public void ConnectionError_HdDisplay_CallConsoleWriteLine()
+        {
+            //Arrange
+
+            //Act
+            _display.ConnectionError();
+            //Assert
+            _myConsole.Received(1).WriteLine("Your phone doesn't seem to be connected. Please check the cabel and close the door again.");
+        }
+
+        [Test]
+        public void Busy_HdDisplay_CallConsoleWriteLine()
+        {
+            //Arrange
+
+            //Act
+            _display.Busy();
+            //Assert
+            _myConsole.Received(1).WriteLine("This charging locker is busy. If it is your locker scan your RFID tag to open.");
+        }
+        [Test]
+        public void PhoneDone_HdDisplay_CallConsoleWriteLine()
+        {
+            //Arrange
+
+            //Act
+            _display.PhoneDone();
+            //Assert
+            _myConsole.Received(1).WriteLine("This charging locker is now free for use.");
         }
     }
 }
