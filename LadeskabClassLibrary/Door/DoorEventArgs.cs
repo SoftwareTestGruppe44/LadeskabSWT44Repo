@@ -1,7 +1,9 @@
-﻿namespace LadeskabClassLibrary.Door
+﻿using System;
+
+namespace LadeskabClassLibrary.Door
 {
-    public class DoorEventArgs
+    public class DoorEventArgs : EventArgs
     {
-        
+        public bool DoorOpen { get; set; }
     }
 }

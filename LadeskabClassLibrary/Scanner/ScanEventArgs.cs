@@ -1,7 +1,9 @@
-﻿namespace LadeskabClassLibrary.Scanner
+﻿using System;
+
+namespace LadeskabClassLibrary.Scanner
 {
-    public class ScanEventArgs
+    public class ScanEventArgs : EventArgs
     {
-        
+        public int ScannedId { get; set; }
     }
 }
