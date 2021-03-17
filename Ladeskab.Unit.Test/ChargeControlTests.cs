@@ -9,22 +9,29 @@ namespace Ladeskab.Unit.Test
     {
         private IChargeControl _chargeControl;
         private IUsbCharger _usbCharger;
+        private UsbChargerSimulator _usbSimulator;
         [SetUp]
         public void Setup()
         {
-            _chargeControl = Substitute.For<IChargeControl>();
-            _usbCharger = Substitute.For<IUsbCharger>();
+            _usbSimulator = Substitute.For<UsbChargerSimulator>();
+            _usbCharger = _usbSimulator;
+            _chargeControl = new ChargeControl(_usbCharger);
+            
         }
 
-        [Test]
-        public void check_isConnected()
+        
+        [TestCase(true)]
+        [TestCase(false)]
+        public void check_isConnected(bool connected)
         {
             //Arrange
-            _chargeControl.isConnected();
+            
             //Act
-
+            _usbSimulator.SimulateConnected(connected);
+            var connection = _chargeControl.isConnected();
+           
             //Assert
-            Assert.Pass();
+            Assert.AreEqual(connected, connection);
         }
 
         [Test]
@@ -33,9 +40,10 @@ namespace Ladeskab.Unit.Test
             //Arrange
 
             //Act
-            _usbCharger.StartCharge();
+            _chargeControl.StartCharge();
             //Assert
             _usbCharger.Received(1).StartCharge();
+            
         }
 
         [Test]
@@ -44,7 +52,7 @@ namespace Ladeskab.Unit.Test
             //Arrange
 
             //Act
-            _usbCharger.StopCharge();
+            _chargeControl.StopCharge();
             //Assert
             _usbCharger.Received(1).StopCharge();
         }
