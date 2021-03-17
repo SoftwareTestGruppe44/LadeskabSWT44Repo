@@ -71,16 +71,17 @@ namespace Ladeskab.Unit.Test
             //assert
             Assert.That(_receivedEventArgs, Is.Not.Null);
         }
-        //[Test]
-        //public void DoorClose_DoorIsOpenChangesState_EventFired()
-        //{
-        //    //arrange
+        [Test]
+        public void DoorClose_DoorIsOpenChangesState_EventFired()
+        {
+            //arrange
             
-        //    //act
-        //    _door.DoorClose();
-        //    //assert
-        //    Assert.That(_receivedEventArgs, Is.Not.Null);
-        //}
+            //act
+            _door.DoorOpen();
+            _door.DoorClose();
+            //assert
+            Assert.That(_receivedEventArgs, Is.Not.Null);
+        }
         //[Test]
         //public void DoorOpen_DoorIsOpenDoesNotChangeState_EventNotFired()
         //{
