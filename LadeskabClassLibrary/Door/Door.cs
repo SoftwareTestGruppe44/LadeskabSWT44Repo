@@ -6,27 +6,21 @@ namespace LadeskabClassLibrary.Door
     {
        
         public event EventHandler<DoorEventArgs> StateChanged;
-        public bool DoorOpened { get; set; }
-        public bool DoorClosed { get; set; }
+        public bool DoorIsOpen { get; set; }
+
         public void LockDoor(bool doorStateChanged)
         {
-            if (DoorClosed == true) 
-            {
-                OnStateChanged(new DoorEventArgs() {DoorOpen = doorStateChanged});
-                DoorClosed = false;
-                DoorOpened = true;
-            }
+            if (DoorIsOpen == true) return;
+            OnStateChanged(new DoorEventArgs() {DoorOpen = doorStateChanged});
+            DoorIsOpen = false;
         }
 
 
         public void UnlockDoor(bool doorStateChanged)
         {
-            if (DoorOpened != true)
-            {
-                OnStateChanged(new DoorEventArgs() { DoorOpen = doorStateChanged });
-                DoorOpened = false;
-                DoorClosed = true;
-            }
+            if (DoorIsOpen != true) return;
+            OnStateChanged(new DoorEventArgs() { DoorOpen = doorStateChanged });
+            DoorIsOpen = true;
         }
 
         protected virtual void OnStateChanged(DoorEventArgs e)
