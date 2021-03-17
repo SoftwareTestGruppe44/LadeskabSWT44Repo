@@ -42,7 +42,7 @@ namespace Ladeskab.Unit.Test
             Assert.That(_receivedEventArgs, Is.Not.Null);
         }
         [Test]
-        public void UnlockDoor_DoorIsOpenChangesState_EventNotFired()
+        public void UnlockDoor_DoorIsOpenDoNotChangeState_EventNotFired()
         {
             // arrange
             _door.DoorIsOpen = true;
@@ -52,7 +52,7 @@ namespace Ladeskab.Unit.Test
             Assert.That(_receivedEventArgs, Is.Null);
         }
         [Test]
-        public void LockDoor_DoorIsOpenChangesState_EventNotFired()
+        public void LockDoor_DoorIsOpenDoNotChangeState_EventNotFired()
         {
             //arrange
             _door.DoorIsOpen = false;
@@ -60,6 +60,16 @@ namespace Ladeskab.Unit.Test
             _door.LockDoor(_door.DoorIsOpen);
             //assert
             Assert.That(_receivedEventArgs, Is.Null);
+        }
+        [Test]
+        public void LockDoor_DoorOpenIsEqualToDoorIsOpen()
+        {
+            //arrange
+            _door.DoorIsOpen = true;
+            //act
+            _door.LockDoor(_door.DoorIsOpen);
+            //assert
+            Assert.AreEqual(true, _receivedEventArgs.DoorOpen);
         }
     }
 }
