@@ -7,13 +7,15 @@ namespace LadeskabClassLibrary.ChargeController
     {
         private IUsbCharger usbCharger;
 
+        //Constructor takes UsbCharger interface as input,
+        //so ChargeControl knows which USBcharger is being worked on
         public ChargeControl(IUsbCharger iusb)
         {
             usbCharger = iusb;
         }
-        public bool isConnected()
+        public bool isConnected() //Checks UsbChargerSimulator if connected/Returns true/false
         {
-            if (usbCharger.Connected) { return true; } //Checks UsbChargerSimulator if connected
+            if (usbCharger.Connected) { return true; } 
             return false;
         }
 

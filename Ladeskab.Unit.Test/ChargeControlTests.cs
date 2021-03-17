@@ -21,16 +21,16 @@ namespace Ladeskab.Unit.Test
         
         [TestCase(true)]
         [TestCase(false)]
-        public void check_isConnected_TrueFalse(bool connected)
+        public void isConnected_Returns_TrueOrFalse(bool setConnection)
         {
             //Arrange
             
             //Act
-            _usbSimulator.SimulateConnected(connected);
+            _usbSimulator.SimulateConnected(setConnection);
             var connection = _chargeControl.isConnected();
            
             //Assert
-            Assert.AreEqual(connected, connection);
+            Assert.AreEqual(setConnection, connection);
         }
 
         [Test]
