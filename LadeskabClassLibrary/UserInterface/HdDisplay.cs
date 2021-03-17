@@ -38,7 +38,7 @@ namespace LadeskabClassLibrary.UserInterface
 
         public void PhoneDone()
         {
-            _myConsole.WriteLine("This charging locker is now free for use.");
+            _myConsole.WriteLine("Take your phone and close the door.");
         }
     }
 }

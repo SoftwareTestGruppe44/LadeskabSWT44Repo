@@ -79,7 +79,7 @@ namespace Ladeskab.Unit.Test
             //Act
             _display.PhoneDone();
             //Assert
-            _myConsole.Received(1).WriteLine("This charging locker is now free for use.");
+            _myConsole.Received(1).WriteLine("Take your phone and close the door.");
         }
     }
 }
