@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace Ladeskab.Unit.Test
 {
-    public class RfidTestClass
+    public class RfidTest
     {
         private RfidScanner _uut;
         private ScanEventArgs _eventArgs;
