@@ -61,5 +61,15 @@ namespace Ladeskab.Unit.Test
             //assert
             Assert.That(_receivedEventArgs, Is.Null);
         }
+        [Test]
+        public void LockDoor_DoorOpenIsEqualToDoorIsOpen()
+        {
+            //arrange
+            _door.DoorIsOpen = true;
+            //act
+            _door.LockDoor(_door.DoorIsOpen);
+            //assert
+            Assert.AreEqual(true, _receivedEventArgs.DoorOpen);
+        }
     }
 }
