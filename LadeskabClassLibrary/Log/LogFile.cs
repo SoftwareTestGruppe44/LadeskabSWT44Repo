@@ -11,13 +11,13 @@ namespace LadeskabClassLibrary.Log
         }
         public void LogDoorLocked(int id)
         {
-            var textToLog = "Ladeskab locked by ID: " + id.ToString() + ", at time: " + DateTime.Now.ToString() + "\n";
+            var textToLog = "Ladeskab locked by RFID: " + id.ToString() + ", at time: " + DateTime.Now.ToString() + "\n";
             _logger.WriteToFile(textToLog);
         }
 
         public void LogDoorUnlocked(int id)
         {
-            var textToLog = "Ladeskab unlocked by ID: " + id.ToString() + ", at time: " + DateTime.Now.ToString() + "\n";
+            var textToLog = "Ladeskab unlocked by RFID: " + id.ToString() + ", at time: " + DateTime.Now.ToString() + "\n";
             _logger.WriteToFile(textToLog);
         }
     }
