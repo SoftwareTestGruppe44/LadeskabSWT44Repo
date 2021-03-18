@@ -64,6 +64,18 @@ namespace Ladeskab.Unit.Test
             //Assert
             _subDisplay.Received(1).ConnectionError();
         }
+        
+        [Test]
+        public void ConnectPhone_RFIDscanned_DoorNotClosed()
+        {
+            //Arrange
+            _subDoor.DoorIsOpen.Returns(true);
+            _subChargeControl.isConnected().Returns(false);
+            //Act
+            _subScanner.ScanEvent += Raise.EventWith(new ScanEventArgs() { ScannedId = 10 });
+            //Assert
+            _subDisplay.Received(1).ConnectionError();
+        }
 
         [Test]
         public void ConnectPhone_RFIDscanned_PhoneConnected()

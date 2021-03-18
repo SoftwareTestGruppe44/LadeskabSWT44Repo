@@ -65,7 +65,7 @@ namespace LadeskabClassLibrary
             {
                 case LadeskabState.Available:
                     // Check for ladeforbindelse
-                    if (_charger.isConnected())
+                    if (_charger.isConnected() && !_door.DoorIsOpen)
                     {
                         _door.LockDoor();
                         _charger.StartCharge();

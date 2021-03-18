@@ -30,18 +30,5 @@ namespace Ladeskab.Unit.Test
             //Assert
             Assert.AreEqual("test\r\n", consoleText);
         }
-
-        [Test]
-        public void GetMsg_MyConsole_GetMsg()
-        {
-            //Arrange
-            _myConsole.WriteLine("test");
-            //Act
-            var getMsg = _myConsole._msg;
-            //Assert
-            Assert.AreEqual("test", getMsg);
-        }
-
-
     }
 }
