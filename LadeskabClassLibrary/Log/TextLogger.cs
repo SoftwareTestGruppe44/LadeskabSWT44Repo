@@ -3,7 +3,7 @@ using System.IO;
 
 namespace LadeskabClassLibrary.Log
 {
-    public class Logger : ILogger
+    public class TextLogger : ILogger
     {
         public void WriteToFile(string text)
         {

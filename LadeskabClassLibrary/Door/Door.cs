@@ -21,7 +21,6 @@ namespace LadeskabClassLibrary.Door
         public void DoorOpen()
         {
             if (DoorIsOpen == true) return;
-
             DoorIsOpen = true;
             OnStateChanged(new DoorEventArgs() { DoorOpen = DoorIsOpen });
         }

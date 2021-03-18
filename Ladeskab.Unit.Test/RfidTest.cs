@@ -26,25 +26,29 @@ namespace Ladeskab.Unit.Test
                 };
         }
 
-        [Test]
-        public void ScanId_NewIdDetected_EventCalled()
+        [TestCase(5)]
+        [TestCase(10)]
+        [TestCase(int.MaxValue)]
+        public void ScanId_NewIdDetected_EventCalled(int id)
         {
             //Arrange
-            _uut.ScanId(2);
+            _uut.ScanId(id);
 
             //Act
             //Assert
             Assert.That(_eventArgs, Is.Not.Null);
         }
 
-        [Test]
-        public void ScanId_NewInvalidIdDetected_EventNotCalledExceptionThrown()
+        [TestCase(0)]
+        [TestCase(-10)]
+        [TestCase(int.MinValue)]
+        public void ScanId_NewInvalidIdDetected_ExceptionThrownEventNotCalled(int id)
         {
             //Arrange
             //Act
             try
             {
-                _uut.ScanId(0);
+                _uut.ScanId(id);
             }
             catch (ArgumentOutOfRangeException e)
             {
