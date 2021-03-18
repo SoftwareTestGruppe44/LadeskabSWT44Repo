@@ -45,16 +45,11 @@ namespace Ladeskab.Unit.Test
         public void ScanId_NewInvalidIdDetected_ExceptionThrownEventNotCalled(int id)
         {
             //Arrange
+
             //Act
-            try
-            {
-                _uut.ScanId(id);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                
-            }
-            //Assert
+
+            ////Assert
+            Assert.Catch<ArgumentOutOfRangeException>(() => _uut.ScanId(id));
             Assert.That(_eventArgs, Is.Null);
         }
 
