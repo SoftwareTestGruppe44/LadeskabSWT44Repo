@@ -35,7 +35,11 @@ namespace LadeskabClassLibrary.ChargeController
 
         public void ChargingValueChanged(object o, CurrentEventArgs e)
         {
-            _display.CurrentChargingValue(e.Current);
+            var val = e.Current / 2500 * 100;
+            if (val % 5 == 0)
+            {
+                _display.CurrentChargingValue(e.Current);
+            }
         }
     }
 }
