@@ -1,5 +1,6 @@
 using LadeskabClassLibrary.ChargeController;
 using LadeskabClassLibrary.USBCharger;
+using LadeskabClassLibrary.UserInterface;
 using NUnit.Framework;
 using NSubstitute;
 
@@ -9,12 +10,14 @@ namespace Ladeskab.Unit.Test
     {
         private IChargeControl _chargeControl;
         private IUsbCharger _usbCharger;
+        private IDisplay _display;
         
         [SetUp]
         public void Setup()
         {
             _usbCharger = Substitute.For<IUsbCharger>();
-            _chargeControl = new ChargeControl(_usbCharger);
+            _display = Substitute.For<IDisplay>();
+            _chargeControl = new ChargeControl(_usbCharger, _display);
         }
 
         
