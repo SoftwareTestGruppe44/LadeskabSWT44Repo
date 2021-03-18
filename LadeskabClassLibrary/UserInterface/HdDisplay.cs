@@ -23,7 +23,7 @@ namespace LadeskabClassLibrary.UserInterface
 
         public void RFIDError()
         {
-            _myConsole.WriteLine("Your doesn't match the owner of this locker.");    
+            _myConsole.WriteLine("Your RFID-tag doesn't match the owner of this locker.");    
         }
 
         public void ConnectionError()
@@ -33,7 +33,7 @@ namespace LadeskabClassLibrary.UserInterface
 
         public void Busy()
         {
-            _myConsole.WriteLine("This charging locker is busy. If it is your locker scan your RFID tag to open.");
+            _myConsole.WriteLine("Your phone is now charging. This charging locker is therefore now busy. If it is your locker scan your RFID tag to open.");
         }
 
         public void PhoneDone()
