@@ -46,8 +46,8 @@ namespace Ladeskab.Unit.Test
 
             //Act
             _display.RFIDError();
-            //Assert
-            _myConsole.Received(1).WriteLine("Your doesn't match the owner of this locker.");
+            //Assert@"
+            _myConsole.Received(1).WriteLine("Your RFID-tag doesn't match the owner of this locker.");
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace Ladeskab.Unit.Test
             //Act
             _display.Busy();
             //Assert
-            _myConsole.Received(1).WriteLine("This charging locker is busy. If it is your locker scan your RFID tag to open.");
+            _myConsole.Received(1).WriteLine("Your phone is now charging. This charging locker is therefore now busy. If it is your locker scan your RFID tag to open.");
         }
         [Test]
         public void PhoneDone_HdDisplay_CallConsoleWriteLine()
