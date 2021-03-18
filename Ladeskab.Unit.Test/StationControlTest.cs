@@ -7,6 +7,7 @@ using LadeskabClassLibrary.Scanner;
 using LadeskabClassLibrary.UserInterface;
 using NSubstitute;
 using NSubstitute.Exceptions;
+using NSubstitute.Routing.Handlers;
 using NUnit.Framework;
 
 namespace Ladeskab.Unit.Test
@@ -14,7 +15,6 @@ namespace Ladeskab.Unit.Test
     public class StationControlTest
     {
         private IChargeControl _chargeControl;
-        private Door _testDoor;
         private IDoor _door;
         private IDisplay _display;
         private ILog _log;
@@ -24,8 +24,7 @@ namespace Ladeskab.Unit.Test
         public void Setup()
         {
             _chargeControl = Substitute.For<IChargeControl>();
-            _testDoor = Substitute.For<Door>();
-            _door = _testDoor;
+            _door = Substitute.For<IDoor>();
             _scanner = Substitute.For<IScanner>();
             _display = Substitute.For<IDisplay>();
             _door = Substitute.For<IDoor>();
@@ -37,11 +36,11 @@ namespace Ladeskab.Unit.Test
         public void ConnectPhone_HdDisplay_CallConsoleWriteLine()
         {
             //Arrange
-            //_testDoor.DoorOpen();
+            _door.StateChanged += Raise.EventWith(new DoorEventArgs() {DoorOpen = true});
             //Act
-            
+
             //Assert
-            //_display.Received(1).ConnectPhone();
+            _display.Received(1).ConnectPhone();
         }
     }
 }
