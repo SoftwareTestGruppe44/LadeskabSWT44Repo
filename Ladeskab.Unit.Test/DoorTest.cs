@@ -42,6 +42,16 @@ namespace Ladeskab.Unit.Test
             Assert.AreEqual(true, _door.DoorLocked);
         }
         [Test]
+        public void LockDoor_DoorLockedDoesNotChangesValue_IsEqualToTrue()
+        {
+            //arrange
+            _door.LockDoor();
+            //act
+            _door.LockDoor();
+            //assert
+            Assert.AreEqual(true, _door.DoorLocked);
+        }
+        [Test]
         public void UnlockDoor_DoorLockedDoesNotChangeValue_IsEqualToFalse()
         {
             //arrange
