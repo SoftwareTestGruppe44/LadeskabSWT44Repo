@@ -65,7 +65,7 @@ namespace LadeskabClassLibrary
             {
                 case LadeskabState.Available:
                     // Check for ladeforbindelse
-                    if (_charger.isConnected() && !_door.DoorIsOpen)
+                    if (_charger.isConnected())
                     {
                         _door.LockDoor();
                         _charger.StartCharge();
@@ -109,10 +109,12 @@ namespace LadeskabClassLibrary
             if (e.DoorOpen)
             {
                 _display.ConnectPhone();
+                _state = LadeskabState.DoorOpen;
             }
             else
             {
                 _display.ScanRFID();
+                _state = LadeskabState.Available;
             }
         }
 
