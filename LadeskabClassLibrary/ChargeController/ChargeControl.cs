@@ -38,7 +38,7 @@ namespace LadeskabClassLibrary.ChargeController
             var val = e.Current / 2500 * 100;
             if (val % 5 == 0)
             {
-                _display.CurrentChargingValue(e.Current);
+                _display.CurrentChargingValue(val);
             }
         }
     }
