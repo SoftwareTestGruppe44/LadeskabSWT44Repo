@@ -14,14 +14,15 @@ namespace LadeskabApplication
     {
         static void Main(string[] args)
         {
+            MyConsole myConsole = new MyConsole();
+            HdDisplay display = new HdDisplay(myConsole);
             UsbChargerSimulator usbCharger = new UsbChargerSimulator();
-            ChargeControl chargeControl = new ChargeControl(usbCharger);
+            ChargeControl chargeControl = new ChargeControl(usbCharger, display);
             Door door = new Door();
             TextLogger textLogger = new TextLogger();
             LogFile logFile = new LogFile(textLogger);
-            MyConsole myConsole = new MyConsole();
             RfidScanner scanner = new RfidScanner();
-            HdDisplay display = new HdDisplay(myConsole);
+            
             StationControl stationControl = new StationControl(chargeControl, door, scanner, display, logFile);
             
             bool finish = false;
