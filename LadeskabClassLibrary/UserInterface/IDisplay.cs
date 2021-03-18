@@ -8,5 +8,6 @@
         void ConnectionError();
         void Busy();
         void PhoneDone();
+        void CurrentChargingValue(double value);
     }
 }

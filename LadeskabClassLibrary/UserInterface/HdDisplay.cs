@@ -40,5 +40,10 @@ namespace LadeskabClassLibrary.UserInterface
         {
             _myConsole.WriteLine("Take your phone and close the door.");
         }
+
+        public void CurrentChargingValue(double value)
+        {
+            _myConsole.WriteLine($"The phone is now at value {value}");
+        }
     }
 }
