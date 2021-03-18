@@ -8,6 +8,7 @@ namespace LadeskabClassLibrary.ChargeController
     {
         private IUsbCharger _usbCharger;
         private IDisplay _display;
+        private bool _fullyCharged = false;
 
         //Constructor takes _usbCharger interface as input,
         //so ChargeControl knows which _usbCharger is being worked on
@@ -35,10 +36,16 @@ namespace LadeskabClassLibrary.ChargeController
 
         public void ChargingValueChanged(object o, CurrentEventArgs e)
         {
-            var val = e.Current / 2500 * 100;
-            if (val % 5 == 0)
+            double val = ((500 - 2.5) - (e.Current-2.5))/(500-2.5) * 100;
+
+            if (val % 5 == 0 && !_fullyCharged)
             {
                 _display.CurrentChargingValue(val);
+            }
+
+            if (val == 100)
+            {
+                _fullyCharged = true;
             }
         }
     }

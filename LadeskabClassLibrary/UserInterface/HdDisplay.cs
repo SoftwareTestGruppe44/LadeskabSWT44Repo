@@ -43,7 +43,7 @@ namespace LadeskabClassLibrary.UserInterface
 
         public void CurrentChargingValue(double value)
         {
-            _myConsole.WriteLine($"The phone is now at value {value}");
+            _myConsole.WriteLine($"The phone battery level is at {value}%");
         }
     }
 }
