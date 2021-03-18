@@ -75,6 +75,11 @@ namespace Ladeskab.Unit.Test
             _subScanner.ScanEvent += Raise.EventWith(new ScanEventArgs() { ScannedId = 10 });
             //Assert
             _subDisplay.Received(1).ConnectPhone();
+            _subDisplay.DidNotReceive().RFIDError();
+            _subDisplay.DidNotReceive().PhoneDone();
+            _subDisplay.DidNotReceive().ConnectionError();
+            _subDisplay.DidNotReceive().Busy();
+            _subDisplay.DidNotReceive().ScanRFID();
         }
 
         [Test]
