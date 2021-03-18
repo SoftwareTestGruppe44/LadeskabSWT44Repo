@@ -30,7 +30,5 @@ namespace Ladeskab.Unit.Test
             //Assert
             Assert.AreEqual("test\r\n", consoleText);
         }
-
-
     }
 }

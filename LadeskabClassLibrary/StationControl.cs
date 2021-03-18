@@ -109,10 +109,12 @@ namespace LadeskabClassLibrary
             if (e.DoorOpen)
             {
                 _display.ConnectPhone();
+                _state = LadeskabState.DoorOpen;
             }
             else
             {
                 _display.ScanRFID();
+                _state = LadeskabState.Available;
             }
         }
 
