@@ -47,7 +47,7 @@ namespace Ladeskab.Unit.Test
             //Act
             _display.RFIDError();
             //Assert@"
-            _myConsole.Received(1).WriteLine("Your RFID - tag doesn't match the owner of this locker.");
+            _myConsole.Received(1).WriteLine("Your RFID-tag doesn't match the owner of this locker.");
         }
 
         [Test]
