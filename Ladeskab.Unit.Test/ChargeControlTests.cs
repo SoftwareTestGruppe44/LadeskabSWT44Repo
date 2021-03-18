@@ -9,12 +9,11 @@ namespace Ladeskab.Unit.Test
     {
         private IChargeControl _chargeControl;
         private IUsbCharger _usbCharger;
-        private UsbChargerSimulator _usbSimulator;
+        
         [SetUp]
         public void Setup()
         {
-            _usbSimulator = Substitute.For<UsbChargerSimulator>();
-            _usbCharger = _usbSimulator;
+            _usbCharger = Substitute.For<IUsbCharger>();
             _chargeControl = new ChargeControl(_usbCharger);
         }
 
@@ -24,9 +23,8 @@ namespace Ladeskab.Unit.Test
         public void isConnected_Returns_TrueOrFalse(bool setConnection)
         {
             //Arrange
-            
+            _usbCharger.Connected.Returns(setConnection);
             //Act
-            _usbSimulator.SimulateConnected(setConnection);
             var connection = _chargeControl.isConnected();
            
             //Assert
