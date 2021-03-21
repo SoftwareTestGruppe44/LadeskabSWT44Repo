@@ -55,5 +55,18 @@ namespace Ladeskab.Unit.Test
             //Assert
             _usbCharger.Received(1).StopCharge();
         }
+
+        [TestCase(500,0)]
+        [TestCase(251.25, 50)]
+        [TestCase(2.5, 100)]
+        public void ChargeControl_ChargingValueChanged_callsDisplay(double value, double level)
+        {
+            //Arrange
+            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() {Current = value});
+            //Act
+            
+            //Assert
+            _display.Received(1).CurrentChargingValue(level);
+        }
     }
 }

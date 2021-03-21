@@ -18,7 +18,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void ConnectPhone_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_ConnectPhone_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -29,7 +29,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void ScanRFID_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_ScanRFID_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -40,7 +40,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void RFIDError_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_RFIDError_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -51,7 +51,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void ConnectionError_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_ConnectionError_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -62,7 +62,7 @@ namespace Ladeskab.Unit.Test
         }
 
         [Test]
-        public void Busy_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_Busy_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -72,7 +72,7 @@ namespace Ladeskab.Unit.Test
             _myConsole.Received(1).WriteLine("Your phone is now charging. This charging locker is therefore now busy. If it is your locker scan your RFID tag to open.");
         }
         [Test]
-        public void PhoneDone_HdDisplay_CallConsoleWriteLine()
+        public void HdDisplay_PhoneDone_CallConsoleWriteLine()
         {
             //Arrange
 
@@ -86,7 +86,7 @@ namespace Ladeskab.Unit.Test
         [TestCase(25.5)]
         [TestCase(50)]
         [TestCase(100)]
-        public void CurrentCharge_HdDisplay_CallConsoleWriteLine(double value)
+        public void HdDisplay_CurrentCharge_CallConsoleWriteLine(double value)
         {
             //Arrange
 
