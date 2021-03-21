@@ -81,5 +81,19 @@ namespace Ladeskab.Unit.Test
             //Assert
             _myConsole.Received(1).WriteLine("Take your phone and close the door.");
         }
+
+        [TestCase(0)]
+        [TestCase(25.5)]
+        [TestCase(50)]
+        [TestCase(100)]
+        public void CurrentCharge_HdDisplay_CallConsoleWriteLine(double value)
+        {
+            //Arrange
+
+            //Act
+            _display.CurrentChargingValue(value);
+            //Assert
+            _myConsole.Received(1).WriteLine($"The phone battery level is at {value}%");
+        }
     }
 }
