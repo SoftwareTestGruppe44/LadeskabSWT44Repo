@@ -24,17 +24,17 @@ namespace LadeskabClassLibrary.ChargeController
             return false;
         }
 
-        public void StartCharge()
+        public void StartCharge()   //Method that calls start method in IUSBCharger
         {
             _usbCharger.StartCharge();
         }
 
-        public void StopCharge()
+        public void StopCharge()    //Method that calls stop method in IUSBCharger
         {
             _usbCharger.StopCharge();
         }
 
-        public void ChargingValueChanged(object o, CurrentEventArgs e)
+        public void ChargingValueChanged(object o, CurrentEventArgs e) //Calls Display with current charging value in %
         {
             double val = ((500 - 2.5) - (e.Current-2.5))/(500-2.5) * 100;
 
