@@ -49,7 +49,7 @@ namespace LadeskabApplication
                         break;
 
                     case 'S':
-                        System.Console.WriteLine("Enter: RFID id: ");
+                        System.Console.WriteLine("Enter RFID: ");
                         string idString = System.Console.ReadLine();
 
                         int id = Convert.ToInt32(idString);
