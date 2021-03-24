@@ -30,7 +30,7 @@ namespace LadeskabApplication
             {
                 string input;
                 System.Console.WriteLine("E: Exit \nO: Open\nC: Close\nS: Scan RFID");
-                System.Console.WriteLine("Indtast E, O, C, S: ");
+                System.Console.WriteLine("Enter: E, O, C, S: ");
                 input = Console.ReadLine().ToUpper();
                 if (string.IsNullOrEmpty(input)) continue;
 
@@ -49,7 +49,7 @@ namespace LadeskabApplication
                         break;
 
                     case 'S':
-                        System.Console.WriteLine("Indtast RFID id: ");
+                        System.Console.WriteLine("Enter: RFID id: ");
                         string idString = System.Console.ReadLine();
 
                         int id = Convert.ToInt32(idString);
