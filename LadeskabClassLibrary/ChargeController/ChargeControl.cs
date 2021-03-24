@@ -6,8 +6,8 @@ namespace LadeskabClassLibrary.ChargeController
 {
     public class ChargeControl : IChargeControl
     {
-        private IUsbCharger _usbCharger;
-        private IDisplay _display;
+        private readonly IUsbCharger _usbCharger;
+        private readonly IDisplay _display;
         private bool _fullyCharged = false;
 
         //Constructor takes _usbCharger interface as input,
