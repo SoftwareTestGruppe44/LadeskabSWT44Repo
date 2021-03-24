@@ -68,9 +68,9 @@ namespace LadeskabClassLibrary
                     if (_charger.isConnected())
                     {
                         _door.LockDoor();
-                        _charger.StartCharge();
                         _oldId = e.ScannedId;
                         _Log.LogDoorLocked(e.ScannedId);
+                        _charger.StartCharge();
                         _display.Busy();
                         _state = LadeskabState.Locked;
                     }
